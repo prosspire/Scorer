@@ -12,6 +12,25 @@ export const metadata = {
   metadataBase: new URL(defaultUrl),
   title: 'Famosa garage',
   description: 'one of the best Enginner ',
+  keywords: [
+    "Ashish Rohilla", "ashishrohilla.in", "DevOps Engineering", "Full Stack Development", "Cloud Architecture", 
+    "System Administration", "Software Development", "Coding Tutorials", "Tech Education", "Programming",
+    "Web Development", "React.js", "Next.js", "Node.js", "TypeScript", "JavaScript", "Python", 
+    "Docker", "Kubernetes", "AWS", "Azure", "Google Cloud", "GCP", "CI/CD", "Continuous Integration", 
+    "Continuous Deployment", "Jenkins", "GitLab CI", "GitHub Actions", "Terraform", "Ansible", 
+    "Linux", "Ubuntu", "CentOS", "Shell Scripting", "Bash", "Networking", "Security", "Cybersecurity", 
+    "Database Management", "SQL", "MySQL", "PostgreSQL", "MongoDB", "NoSQL", "Redis", "GraphQL", 
+    "REST API", "Microservices", "Serverless", "Frontend Development", "Backend Development", 
+    "UI/UX Design", "Tailwind CSS", "Bootstrap", "HTML5", "CSS3", "SASS", "LESS", "Web Design", 
+    "App Development", "Mobile Development", "React Native", "Flutter", "iOS Development", 
+    "Android Development", "Agile Methodology", "Scrum", "Kanban", "Project Management", 
+    "Software Engineering", "Tech Blog", "Developer Community", "Coding Bootcamp", "Online Courses", 
+    "Tech Mentorship", "Career Growth", "Interview Preparation", "Coding Challenges", "LeetCode", 
+    "System Design", "Data Structures", "Algorithms", "Open Source", "Git", "GitHub", "Version Control", 
+    "IT Automation", "Infrastructure as Code", "Monitoring", "Prometheus", "Grafana", "ELK Stack", 
+    "Logstash", "Kibana", "Elasticsearch", "Tech News", "Developer Tools", "VS Code", "IntelliJ", 
+    "Vim", "Software Architecture"
+  ]
 }
 
 export default function RootLayout({

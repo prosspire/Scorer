@@ -5,29 +5,53 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap>  {
     let { data: blogs } = await readBlog();
     let { data: chapters } = await readchapter();
 
+    const siteUrl = process.env.SITE_URL || 'http://localhost:3000';
+
     // Map blogs to postEntries with required properties
-    const postEntries = blogs?.map((blog) => ({
-        url: `${process.env.SITE_URL}/blog/${blog?.slug}`,
+    const postEntries: MetadataRoute.Sitemap = blogs?.map((blog: any) => ({
+        url: `${siteUrl}/blog/${blog?.slug}`,
         lastModified: new Date(blog.created_at),
-        changeFrequency: 'weekly', // Default value
-        priority: 0.5, // Default value
-    }));
+        changeFrequency: 'weekly',
+        priority: 0.5,
+    })) || [];
 
-    const chapterentries = chapters?.map((chapter) => ({
-        url: `${process.env.SITE_URL}/chapter/${chapter?.slug}`,
+    const chapterentries: MetadataRoute.Sitemap = chapters?.map((chapter: any) => ({
+        url: `${siteUrl}/chapter/${chapter?.slug}`,
         lastModified: new Date(chapter.created_at),
-        changeFrequency: 'weekly', // Default value
-        priority: 0.5, // Default value
-    }));
+        changeFrequency: 'weekly',
+        priority: 0.5,
+    })) || [];
 
-    // Static entries for aboutus, privacypolicy, contactus
-    const staticEntries = [
-        { url: `${process.env.SITE_URL}/aboutus` },
-        { url: `${process.env.SITE_URL}/contactus` },
+    // Static entries for aboutus, privacypolicy, contactus, etc.
+    const staticEntries: MetadataRoute.Sitemap = [
+        { 
+            url: `${siteUrl}`, 
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 1 
+        },
+        { 
+            url: `${siteUrl}/aboutus`, 
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8 
+        },
+        { 
+            url: `${siteUrl}/contactus`, 
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8 
+        },
+        { 
+            url: `${siteUrl}/privacypolicy`, 
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.8 
+        },
     ];
 
     // Combine static entries with postEntries
-    const allEntries: MetadataRoute.Sitemap = [...staticEntries, ...(postEntries ?? []) , ...(chapterentries?? []) ];
+    const allEntries: MetadataRoute.Sitemap = [...staticEntries, ...postEntries, ...chapterentries];
 
     return allEntries;
 }
